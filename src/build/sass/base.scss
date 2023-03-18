@@ -245,15 +245,44 @@ canvas#canvasBg {
 
 #work {
 
+  .portfolio {
+    width: 100%;
+    height: 100%;
+    display: grid;
+
+
+    @media (min-width: 800px) {
+      grid-template-columns: repeat(2,1fr);
+    }
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(4,1fr);
+    }
+    
+
+    .portfolio_project {
+    
+      a {
+        img {
+          height: 100%;
+        }
+      }
+    }
+  }
+
 	@media (max-width: 767px) {
 		a {
 			margin: 15px 0;
+
+			img {
+				height: 100%;
+			}
 		}
 	}
 
 	a {
 		position: relative;
 		display: block;
+		height: 100%;
 		transition: all 1.2s ease;
 
 		span {
