@@ -20,7 +20,7 @@ function browserSyncTask(){
   let files = [
     dir.theme + '*.html',
     dir.build + 'css/**/*.css',
-    dir.build + 'sass/**/*.scss',
+    // dir.build + 'sass/**/*.scss',
     dir.build + 'js/**/*.js',
     dir.theme + 'js/**/*.js'
   ];
@@ -65,10 +65,11 @@ function compressCSS(){
   return gulp.src( dir.template+'style.css' )
     .pipe(cleanCSS({compatibilty: 'ie8'}))
     .pipe(rename( 'style.min.css' ))
-    .pipe(gulp.dest(dir.template+'.'))
-    .pipe(addsrc( dir.build+'css/theme-header.css' ))
     .pipe(concat( 'style.min.css' ))
-    .pipe(gulp.dest(dir.template+'.'));
+    .pipe(gulp.dest(dir.template+'.'))
+    // .pipe(addsrc( dir.build+'css/theme-header.css' ))
+    // .pipe(concat( 'style.min.css' ))
+    // .pipe(gulp.dest(dir.template+'.'));
 };
 
 // Watch Task
@@ -79,5 +80,6 @@ function gulpWatch(){
 // New Gulp 4.0 
 gulp.task('default', gulp.parallel(gulpWatch, browserSyncTask)); 
 
-gulp.task('compress', gulp.series(compressCSS));
+
+// gulp.task('compress', gulp.series(compressCSS));
 
